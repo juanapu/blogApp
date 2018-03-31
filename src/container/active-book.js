@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 class ActiveBook extends Component{
 	render(){
 		return (
-
-				<div>{this.props.activeBook.title}</div>
+				<div>title is {this.props.activeBook.title} , page is {this.props.activeBook.page}</div>
 			)
 	}
 }
