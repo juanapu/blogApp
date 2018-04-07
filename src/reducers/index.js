@@ -1,20 +1,12 @@
 import { combineReducers } from 'redux';
-import booksReducer from './reducer_book';
-import activebookReducer from './reducer_activeBook';
-
-
-// const rootReducer = combineReducers({
-//   // state: (state = {}) => state,
-//   books: booksReducer
-// });
-
-// export default rootReducer;
+import weatherInputReducer from './reducer_weatherInput';
+import weatherListReducer from './reducer_weather';
 
 
 const Reducers = combineReducers({
   // state: (state = {}) => state,
-  books: booksReducer,
-  activeBook: activebookReducer
+  weatherInput: weatherInputReducer,
+  weather: weatherListReducer
 });
 
 export default Reducers;

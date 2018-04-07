@@ -12,7 +12,7 @@ class ActiveBook extends Component{
 
 function mapStateToProps(state){
 	return {
-		activeBook: state.activeBook
+		activeBook: state.weatherInput
 	}
 }
 
