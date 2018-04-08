@@ -12,18 +12,39 @@ class Rdweather extends Component {
 	} 
 
 	render(){
-		let weather;
-		if(this.props.weather.data)
-			weather=this.props.weather.data.list.map(weather=>{
-				return ({date: weather.dt_txt, 
-				value: weather.main.temp});
-			});
-		else{
-			weather = [];
-		};
-		console.log("*******weather data is************ ");
-		console.log(weather);
-		return(<Weatherlist  weather={this.props.weather} dt={weather} />)
+		let result;
+		if(this.props.weather.length){
+			// this.props.weather.map(weather => <Weatherlist />);
+					console.log("*******weather data is************ ");
+
+					console.log(this.props.weather);
+					let weather1= [];
+					let innerval=[];
+					result=this.props.weather.map(weather => {
+						 innerval = weather.data.list.map(item=>{
+							return ({
+								date: item.dt_txt,
+								value: item.main.temp
+							});
+						});
+						console.log(")))))))))   innerval  )))))))");
+						console.log(innerval);
+
+						return (<Weatherlist dt={innerval}  key={this.props.weather.indexOf(weather)}/>);
+					});
+					console.log("----------weather---------");
+					console.log(weather1);
+					// result=this.props.weather.map(weather => <Weatherlist dt={innerval} key={this.props.weather.indexOf(weather)} />)
+
+
+		}
+		// console.log(weather);
+		// return(<Weatherlist  weather={this.props.weather} dt={weather} />)
+
+		if(result)
+			return (<ul>{result}</ul>)
+		else 
+			return(<div>please input a city</div>)
 	}
 }
 
