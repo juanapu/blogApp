@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import weatherInputReducer from './reducer_weatherInput';
+import reducerFetch from './reducer_fetch';
 import weatherListReducer from './reducer_weather';
+import { reducer as formReducer } from 'redux-form';
 
 
 const Reducers = combineReducers({
   // state: (state = {}) => state,
-  weatherInput: weatherInputReducer,
-  weather: weatherListReducer
+   reducerFetch: reducerFetch,
+   form: formReducer
 });
 
 export default Reducers;
