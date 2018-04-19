@@ -44,3 +44,24 @@ export function PostData(data,callback){
 		payload: data
 	}
 }
+
+export function Fetchpost(id){
+	const newUrl = `${rooturl}/${id}?key=${key}`; 
+	const request = axios.get(newUrl);
+
+	return {
+		type: 'Fetchpost',
+		payload: request
+	}
+}
+
+export function Deletepost(id,callback){
+	const delid = id; 
+	const newUrl = `${rooturl}/${id}?key=${key}`; 
+	const request =  axios.delete(newUrl).then(()=>callback());
+
+	return {
+		type: 'Deletepost',
+		payload: delid
+	}
+}

@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { PostData } from '../actions/index';
 import { Link } from 'react-router-dom';
-import { form,FormGroup,Col,HelpBlock,FormControl,ControlLabel,bsClass } from 'react-bootstrap';
+import { form,FormGroup,Col,HelpBlock,FormControl,ControlLabel,bsClass,Button,componentClass,bsStyle } from 'react-bootstrap';
 
 // const renderField = (field) => {
 // 	/******  == const name=field.input.name   ********/ 
@@ -67,8 +67,8 @@ class Creactpost extends Component {
 					<Field name="categories" component={this.renderField} />
 					<Field name="content" component={this.renderField} />
 					<div>
-						<input name="save" type="submit" />
-						<Link to='/'><button>cancel</button></Link>
+						<Button bsStyle="primary" type="submit">save</Button>
+						<Link to='/'><Button bsStyle="warning" className="cus-mg-1">cancel</Button></Link>
 					</div>
 				</form>
 			)

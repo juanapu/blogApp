@@ -8,6 +8,7 @@ import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Postlist from './container/postlist';
 import Createpost from './container/createpost';
+import Renderpost from './container/renderpost';
 
 
 import Reducers from './reducers';
@@ -20,6 +21,7 @@ ReactDOM.render(
 	     <BrowserRouter>
 	    	<div>
 	    	  <Switch>
+	    	    <Route path='/post/:id/' component={Renderpost} />
   	    	    <Route path='/createpost/' component={Createpost} />
 	    	    <Route path='/' component={Postlist} />
 	    	  </Switch>

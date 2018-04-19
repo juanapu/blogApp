@@ -12,17 +12,17 @@ export default function(state=null,action){
 			}
 			else
 				return action.payload;
-		case 'PostData':
-		    if(action.payload){
-		    	if(action.payload.data){
-		    	 console.log("reducer data is ;;;;;;;;");
-		    	 console.log(action.payload.data);
-		    	return state
-			    }
-			    return null
-		    }
+		// case 'PostData':
+		// 	   return state;
+		 case 'Deletepost':
+		      console.log("state is ccccc");
+		      console.log(state);
+		      const result = _.omit(state,action.payload);
+		      console.log("result is xxx");
+		      console.log(result);
+	 	 	return result		 	
 	};
 	return {
-		error: 'error'
+		state
 	}
 }

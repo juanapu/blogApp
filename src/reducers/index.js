@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import reducerFetch from './reducer_fetch';
+import reducerPosts from './reducer_posts';
+import reducerPost from './reducer_post';
 import weatherListReducer from './reducer_weather';
 import { reducer as formReducer } from 'redux-form';
 
 
 const Reducers = combineReducers({
   // state: (state = {}) => state,
-   reducerFetch: reducerFetch,
+   reducerPosts: reducerPosts,
+   reducerPost: reducerPost,
    form: formReducer
 });
 

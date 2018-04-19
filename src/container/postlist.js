@@ -14,32 +14,31 @@ class Postlist extends Component{
 	}
 
 	componentDidMount(){
-		console.log("*******below is fetchposts********");
 		console.log(this.props.fetchposts());
-		console.log("*******below is end of fetchposts********");
-
 	}
 
 	render(){
 		let Posts='';
 		if(!this.props.data.error){
-			console.log("below is props data");
-			console.log(this.props.data);
-
 			Posts=this.props.data.map((val,index)=>{
-				const linkurl = "/post:"+val.id+"/";
-				return (					
-					    <Row key={index}>
-					        <Link to={linkurl}>
-							  <Col xs={8}>
-							  	<p>{val.title}</p>
-							  </Col>
-							  <Col xs={4}>
-							     <p>{val.categories}</p>
-							  </Col>
-							</Link>
-						</Row>
-				)
+				if(val){
+					const linkurl = "/post/"+val.id+"/";
+					return (					
+						    <Row key={index}>
+						        <Link to={linkurl}>
+								  <Col xs={8}>
+								  	<p>{val.title?val.title:'null'}</p>
+								  </Col>
+								  <Col xs={4}>
+								     <p>{val.categories?val.categories:'null'}</p>
+								  </Col>
+								</Link>
+							</Row>
+					)
+				}
+				return (
+					<Row key={index}> LOADING... </Row>
+					)
 			});
 		}
 
@@ -60,7 +59,7 @@ class Postlist extends Component{
 
 function mapStateToProps(state){
 	console.log("state is ...");
-	let val= state.reducerFetch;
+	let val= state.reducerPosts;
 	let result=_.map(val,function(vl,index){
 		return vl
 	});
