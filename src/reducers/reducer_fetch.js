@@ -13,10 +13,13 @@ export default function(state=null,action){
 			else
 				return action.payload;
 		case 'PostData':
-		    if(action.payload.data){
+		    if(action.payload){
+		    	if(action.payload.data){
 		    	 console.log("reducer data is ;;;;;;;;");
 		    	 console.log(action.payload.data);
 		    	return state
+			    }
+			    return null
 		    }
 	};
 	return {

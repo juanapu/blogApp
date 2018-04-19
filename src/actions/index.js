@@ -32,15 +32,15 @@ export function Fetchposts(){
 }
 
 /*****data: form input data got from smart component******/ 
-export function PostData(data){
+export function PostData(data,callback){
     const newUrl = `${rooturl}?key=${key}`; 
-    const request = axios.post(newUrl,data);
+    const request = axios.post(newUrl,data).then(()=>callback());  /*** callback get from smart component **/
     console.log(request);
     console.log(" post is xxxx");
     console.log(data);
     
 	return {
 		type: 'PostData',
-		payload: request
+		payload: data
 	}
 }
